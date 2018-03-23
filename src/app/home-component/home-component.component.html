@@ -1,0 +1,264 @@
+
+   <link href="http://vkoilmill.com/Testaccounts/css/landing-page.css" rel="stylesheet"/>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="" href="">
+                    <img class="navbar-brand topnav"  src="http://vkoilmill.com//Testaccounts/img/apple-icon-72x72.png"/>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Free accounts</h1>
+                        <h3>Easy, free accounting webapplication for your small business</h3>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a class="btn btn-default btn-lg" data-toggle="modal" id="loginbutton" data-target="#login-modal"><i class="fa fa-sign-in"></i> <span class="network-name">Login</span></a>
+                            </li>                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- BEGIN # MODAL LOGIN -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" align="center">
+                    <img class="img-circle" id="img_logo" src="http://vkoilmill.com//Testaccounts/img/apple-icon-72x72.png">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="popclose">
+                        <span class="fa fa-remove" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-block btn-social btn-facebook" onclick="" style="color: #fff;background-color: #23345a;border-color: rgba(0,0,0,0.2)">
+                            <span class="fa fa-facebook"></span> Sign in with facebook
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-block btn-social btn-google" id="googleplus" style="color: #fff; background-color: #a32b1c;border-color: rgba(0,0,0,0.2);">
+                            <span class="fa fa-google"></span> Sign in with google
+                        </a>
+                    </div>
+                </div>
+                <!-- Begin # DIV Form -->
+                <div id="div-forms">
+
+                    <!-- Begin # Login Form -->
+
+                    
+                            <form  id="loginform"  class="login-form" [formGroup]="form">
+                        <div class="modal-body">
+                         
+                        <div class="col-md-12">
+                            
+                              <div class="form-group" [ngClass]="displayFieldCss('EmailID')">
+                                <div class="col-md-12">
+                                  <label for="email" class="control-label required">Email ID</label>
+                                  <input type="text" id="EmailID" class="form-control" formControlName="EmailID">
+                                  <app-app-field-error-display [displayError]="isFieldValid('EmailID')" errorMsg="Please inform your email">
+                                  </app-app-field-error-display>
+                                </div>
+                              </div>
+                              <div class="form-group" [ngClass]="displayFieldCss('Password')">
+                                <div class="col-md-12">
+                                  <label for="password" class="control-label required">Password</label>
+                                  <input type="text" id="Password" class="form-control" formControlName="Password">
+                                  <app-app-field-error-display [displayError]="isFieldValid('Password')" errorMsg="Please inform your Password">
+                                  </app-app-field-error-display>
+                                </div>
+                              </div>
+                            </div>
+                            
+                        </div>
+
+                        <div class="modal-footer">
+                            <div>
+                                <button class="btn btn-primary btn-lg btn-block" (click)="login()">Login</button>
+                            </div>
+                            <div>
+                                <button id="login_lost_btn"  class="btn btn-link">Lost Password?</button>
+                                <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                 
+                    <!-- End # Login Form -->
+                    <!-- Begin | Lost Password Form -->
+                    <form id="lost-form" style="display:none;">
+                        <div class="modal-body">
+                            <div id="div-lost-msg">
+                                <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                <span id="text-lost-msg">Type your e-mail.</span>
+                            </div>
+                            <div id="forgot">
+                                <input id="ForgotEmail" class="form-control" type="text" placeholder="E-Mail">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div>
+                                <button type="button" onclick="Forgotemail()" class="btn btn-primary btn-lg btn-block">Send</button>
+                            </div>
+                            <div>
+                                <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
+                                <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End | Lost Password Form -->
+                    <!-- Begin | Register Form -->
+                    <div id="register-form" style="display:none;">
+                        <div class="modal-body">
+                            <div id="div-register-msg">
+                                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                                <span id="text-register-msg">Register an account.</span>
+                            </div>
+                            <input type="text" class="form-control">
+                            <input type="text" class="form-control">
+                            <input type="text" class="form-control">
+
+                        </div>
+
+                        <div class="modal-footer">
+                            <div>
+                                <button type="button" onclick="Register()" class="btn btn-primary btn-lg btn-block">Register</button>
+                            </div>
+                            <div>
+                                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
+                                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End | Register Form -->
+
+                </div>
+                <!-- End # DIV Form -->
+
+            </div>
+        </div>
+    </div>
+    <!-- END # MODAL LOGIN -->
+    <a name="services"></a>
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">No installation, anywhere access</h2>
+                    <p class="lead">Whether you are on your desktop, laptop, tablet or smartphone. You can access your accounting data from anywhere with a web-browser. No downloads, nothing to install, no conflicting versions or files..</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="assets/ThirdParthy/Images/Webp.net-resizeimage.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content-section-a -->
+    <div class="content-section-b">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Control your business with smart reports</h2>
+                    <p class="lead">With useful filters, this Webapplication allows you to see reports. This help you get control of your business.</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <img class="img-responsive" src="assets/ThirdParthy/Images/Webp.net-resizeimage.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content-section-b -->
+    <div class="content-section-a">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Low Price</h2>
+                    <p class="lead">Simple, one time affordable pricing for small and large businesses.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <img class="img-responsive" src="assets/ThirdParthy/Images/Webp.net-resizeimage.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.content-section-a -->
+    <!-- /.banner -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Free accounts 2017. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+
+
+
+
+    

@@ -1,0 +1,59 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="azure" data-image="assets/img/sidebar-5.jpg">
+
+      <app-layout></app-layout>
+  </div>
+
+  <div class="main-panel">
+      <app-topnav></app-topnav>
+      <ng4-loading-spinner [threshold]="1000" [template]="template" 
+      [loadingText]="'Please wait...'" [zIndex]="999" ></ng4-loading-spinner> 
+      <div class="content">
+          <div class="container-fluid">
+                <alert></alert>
+              <div class="col-md-12">
+                  <div class="card">
+                      <div class="header">                       
+                            
+                          <h4 class="title">Customer</h4>
+                          <p class="category">Todal Customer 10</p>
+                          <p class="category">
+                              <a href="addcustomer">
+
+                                  <i class="fa fa-plus plusadd"></i>Add New</a>
+                          </p>
+                      </div>
+
+                      <div class="content table-responsive table-full-width">
+                          <table class="table table-hover table-striped">
+                              <thead>
+                                  <th>ID</th>
+                                  <th>FullName </th>
+                                  <th>Address</th>
+                                  <th>City</th>
+                                  <th>Action</th>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor='let cus of CutomerGridRecords'>
+                                    <td>{{cus.CustomerID}}</td>
+                                      <td>{{cus.FullName}}</td>
+                                      <td>{{cus.Address}}</td>
+                                      <td>{{cus.City}}</td>
+                                      <td>
+                                          
+                                          <span class="btn btn-round btn-warning" (click)="customerEditDelete(cus.CustomerID,2)">Modify</span>
+                                          <span class="btn btn-round btn-danger" (click)="customerEditDelete(cus.CustomerID,3)">Delete</span>
+                                      </td>
+                                  </tr>
+                                 
+
+                              </tbody>
+                          </table>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+

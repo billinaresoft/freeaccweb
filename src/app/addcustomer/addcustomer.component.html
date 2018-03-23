@@ -1,0 +1,83 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="azure" data-image="assets/img/sidebar-5.jpg">
+    <!--
+
+      Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+      Tip 2: you can also add an image using data-image tag
+
+  -->
+    <app-layout></app-layout>
+  </div>
+
+  <div class="main-panel">
+    <app-topnav></app-topnav>
+
+    <div class="content">
+      <div class="container-fluid">
+          <alert></alert>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="header">
+              <h4 class="title">Add Customer</h4>
+            </div>
+            <div class="content">
+              <form [formGroup]="addcustomerform">
+              <div class="form-group row" [ngClass]="displayFieldCss('FirstName')">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="FirstName">
+                  First Name
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" class="form-control" id="FirstName" formControlName="FirstName">
+                  <app-app-field-error-display [displayError]="isFieldValid('FirstName')" errorMsg="Please enter the first name">
+                    </app-app-field-error-display>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="LastName">
+                  Last Name
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" class="form-control" id="LastName" formControlName="LastName">
+        
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Address">
+                  Address
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" class="form-control" id="Address" formControlName="Address">
+        
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="City">
+                  City
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" class="form-control" id="City" formControlName="City">
+        
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Mobile">
+                  Mobile
+                </label>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                  <input type="text" class="form-control" id="Mobile" formControlName="Mobile">
+        
+                </div>
+              </div>
+              <input type="hidden" id="CustomerID" formControlName="CustomerID">
+              <input type="hidden" id="Flag" formControlName="Flag">
+              <div>
+                <button  (click)="IUDCustomer()" class="btn btn-info btn-fill pull-center">Submit</button>
+              </div>
+              <div class="clearfix"></div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
